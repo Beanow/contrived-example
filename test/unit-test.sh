@@ -8,5 +8,10 @@ if [ ! $THE_NUMBER -gt 10 ]; then
 	exit 1
 fi
 
+if [ $THE_NUMBER -eq 21 ]; then
+	echo "The number should not be equal to 21"
+	exit 1
+fi
+
 echo "Tests passed"
 exit 0
