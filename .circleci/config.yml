@@ -1,0 +1,32 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: node
+    steps:
+      - checkout
+      - run: ./test/unit-test.sh
+  publish:
+    executor: node
+    steps:
+      - checkout
+      - run: ./publish.sh
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - test
+  deploy:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
