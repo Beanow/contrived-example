@@ -1,3 +1,3 @@
 #!/bin/bash
 
-THE_NUMBER=42
+THE_NUMBER=21
